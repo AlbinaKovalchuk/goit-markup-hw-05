@@ -57,8 +57,16 @@
         <!------------------ section Hero------------------->
         <section class="hero">
             <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-            <button class="hero-button" type="button">Замовити послугу</button>
-            
+            <button class="hero-button" type="button" data-modal-open>Замовити послугу</button>
+            <div class="backdrop is-hidden" data-modal>
+                <div class="modal">
+                    <a class="data-modal-close" href="">
+                        <svg class="" width="30" height="30">
+                            <use href="./images/symbol-defs.svg#icon-close-2"></use>
+                        </svg></a>
+                </div>
+
+            </div>
         </section>
         <!---------------------section benefits ------------------->
         <section class="section">
@@ -375,6 +383,7 @@
 
         </div>
     </footer>
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
