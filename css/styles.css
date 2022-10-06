@@ -111,6 +111,7 @@ img {
     padding-top: 24px;
     padding-bottom: 25px;
     border-bottom: 1px solid #ECECEC;
+   
 }
 
 /* короб для лого та кроба с навигацией та контактами */
@@ -169,15 +170,22 @@ img {
 
 
 .nav-item {
-    outline: 1px solid black;
+   position: relative;
 }
 
 .nav-item::after {
-    display:block;
-    width: 48px;
+     position: absolute; 
+     left: 0px;
+     top: 45px;
+    content: "";
+    width: 100%;
     height: 4px;
-    background: #2196F3;
+    background:var(--acсent-backgroud);
     border-radius: 2px;
+   
+
+
+
 }
 
 /* ========== номера телефона и емайла====== */
