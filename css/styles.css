@@ -1,7 +1,11 @@
 /* outline: 5px solid black; */
 /* background-color:blueviolet; */
 
+/* Для всіх ефектів ховер і фокуса (колір, фон, тінь) зроблені переходи. Час - 250ms,
+функція розподілу часу - cubic-bezier(0.4, 0, 0.2, 1) */
+
 :root {
+    --timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     /* колір текста основного #757575*/
     /* колір текста для заголовок #212121 */
     --primary-text-color: #757575;
@@ -10,7 +14,6 @@
     /* акцентный колір тексту #FFFFFF*/
     --acсent-backgroud: #2196F3;
     --accent-text: #FFFFFF;
-
     /* колір фона основний  #FFFFFF */
     /* колір фона для Hero та footer #2F303A*/
     --background-color: #F5F4FA;
@@ -116,9 +119,8 @@ img {
     align-items: center;
 }
 
-/* короб для кнопок с навигацией по сайту  */
+/* короб для ссылок с навигацией по сайту  */
 .nav-sait {
-    
     display: flex;
     align-items: center;
 
@@ -150,7 +152,7 @@ img {
 
 /* ==================================================== */
 
-/*  элементы навигации по сайту /сайт портфолыо контакты */
+/*  элементы навигации по сайту /сайт портфолио контакты */
 .nav {
     gap: 50px;
     font-weight: 500;
@@ -162,17 +164,23 @@ img {
 .nav-link:hover,
 .nav-link:focus {
     color: var(--acсent-backgroud);
+    transition: var(--timing-function);
 }
 
-/* .nav-link {margin-bottom: 28px;
+
+.nav-item {
+    outline: 1px solid black;
+}
+
+.nav-item::after {
+    display:block;
     width: 48px;
-height: 8px;
-background: #2196F3;
-border-radius: 2px;}  */
+    height: 4px;
+    background: #2196F3;
+    border-radius: 2px;
+}
 
-
-
-/* ========== текст номера телефона и емайла====== */
+/* ========== номера телефона и емайла====== */
 .conect {
     justify-content: baseline;
     font-weight: 500;
@@ -190,14 +198,10 @@ border-radius: 2px;}  */
     margin-right: 10px;
 }
 
-.conect-icon:hover,
-.conect-icon:focus {
-    fill: var(--acсent-backgroud);
-}
-
 .conect:hover,
 .conect:focus {
     color: var(--acсent-backgroud);
+    transition: var(--timing-function);
 }
 
 
@@ -245,7 +249,7 @@ border-radius: 2px;}  */
 /* ----------------модальне вікно---- */
 
 .backdrop {
-    position: fixed;
+    position:fixed;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -347,28 +351,35 @@ border-radius: 2px;}  */
     padding-top: 0px;
 }
 
-.about.list {position: relative;
+.about.list {
     gap: 30px;
 }
 
-.about-box1 {
+.about-item {
+    position: relative;
+}
+
+.about-box {
+    position: absolute;
     left: 0;
     bottom: 0;
-    position: absolute;
-     width:100px;
-     height:100px;
-   
-        background: rgba(6, 207, 13, 0.8);
-    }
-        .about-box2 {
-            left: 0;
-            top: 0;
-            position: absolute;
-            width: 100px;
-            height: 100px;
-    
-            background: rgba(6, 207, 13, 0.8);
-        }
+    width: 100%;
+    height: 70px;
+    background: rgba(47, 48, 58, 0.8);
+    text-align: center;
+    padding: 27px;
+}
+
+.about-text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+
+}
+
 /* ----------------------------team------------------ */
 .team {
     gap: 30px;
@@ -444,6 +455,7 @@ border-radius: 2px;}  */
     /* на білом підсв синім   */
     background-color: var(--acсent-backgroud);
     color: var(--accent-text);
+    transition: var(--timing-function);
 }
 
 
@@ -474,6 +486,7 @@ border-radius: 2px;}  */
 .client-link:focus {
     border-color: var(--acсent-backgroud);
     color: var(--acсent-backgroud);
+    transition: var(--timing-function);
 }
 
 
@@ -561,6 +574,7 @@ border-radius: 2px;}  */
     /* на білом підсв синім   */
     background-color: var(--acсent-backgroud);
     color: var(--accent-text);
+    transition: var(--timing-function);
 }
 
 
@@ -590,7 +604,8 @@ border-radius: 2px;}  */
 .button-potfolio:hover,
 .button-potfolio:focus {
     color: var(--accent-text);
-    background: var(--acсent-backgroud)
+    background: var(--acсent-backgroud);
+    transition: var(--timing-function);
 }
 
 .products-card {
@@ -604,6 +619,7 @@ border-radius: 2px;}  */
 .products-card-item:hover,
 .products-card-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: var(--timing-function);
 }
 
 .products-text {
@@ -629,13 +645,13 @@ border-radius: 2px;}  */
 
 .product-overflow {
     position: relative;
-    left: 0px; 
-   overflow: hidden; 
+    left: 0px;
+    overflow: hidden;
 }
 
 .products-actions {
     position: absolute;
-    top: 0; 
+    top: 0;
     left: 0;
     font-weight: 400;
     font-size: 18px;
@@ -651,5 +667,6 @@ border-radius: 2px;}  */
 
 .products-card-item:hover .products-actions {
     opacity: 1;
-     transform: translateY(0%); 
+    transform: translateY(0%);
+
 }
