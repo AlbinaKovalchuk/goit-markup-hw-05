@@ -111,7 +111,7 @@ img {
     padding-top: 24px;
     padding-bottom: 25px;
     border-bottom: 1px solid #ECECEC;
-   
+
 }
 
 /* короб для лого та кроба с навигацией та контактами */
@@ -162,27 +162,31 @@ img {
     letter-spacing: 0.02em;
 }
 
+.nav-link {
+    transition: var(--timing-function);
+}
+
 .nav-link:hover,
 .nav-link:focus {
     color: var(--acсent-backgroud);
-    transition: var(--timing-function);
+
 }
 
 
 .nav-item {
-   position: relative;
+    position: relative;
 }
 
 .nav-item::after {
-     position: absolute; 
-     left: 0px;
-     top: 45px;
+    position: absolute;
+    left: 0px;
+    top: 46px;
     content: "";
     width: 100%;
     height: 4px;
-    background:var(--acсent-backgroud);
+    background: var(--acсent-backgroud);
     border-radius: 2px;
-   
+
 
 
 
@@ -196,6 +200,7 @@ img {
     letter-spacing: 0.02em;
     color: #757575;
     fill: currentColor;
+    transition:color var(--timing-function);
 }
 
 .conect-item {
@@ -209,7 +214,6 @@ img {
 .conect:hover,
 .conect:focus {
     color: var(--acсent-backgroud);
-    transition: var(--timing-function);
 }
 
 
@@ -254,40 +258,7 @@ img {
     padding: 10px 32px;
 }
 
-/* ----------------модальне вікно---- */
-
-.backdrop {
-    position:fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.backdrop.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 528px;
-    min-height: 581px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 8px;
-    text-align: right;
-
-
-}
-
 /* -----------------------benefits------------------- */
-
 .benefits {
     gap: 30px;
 }
@@ -451,19 +422,19 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    fill: currentColor;
-    /* передаем колір через fill от
-    .team-soc-item  до  team-soc-link */
     background-color: var(--primary-background-color);
-
+    transition: color var(--timing-function), background-color var(--timing-function);
+    fill: currentColor;
 }
+
+/* передаем колір через fill от .team-soc-item до team-soc-link */
 
 .team-soc-link:hover,
 .team-soc-link:focus {
     /* на білом підсв синім   */
     background-color: var(--acсent-backgroud);
     color: var(--accent-text);
-    transition: var(--timing-function);
+
 }
 
 
@@ -484,6 +455,7 @@ img {
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     color: #AFB1B8;
+    transition: color var(--timing-function), border-color var(--timing-function);
 }
 
 .client-icon {
@@ -494,7 +466,7 @@ img {
 .client-link:focus {
     border-color: var(--acсent-backgroud);
     color: var(--acсent-backgroud);
-    transition: var(--timing-function);
+
 }
 
 
@@ -575,6 +547,7 @@ img {
     /* передаем колір через fill от
     item  до  link */
     background-color: rgba(255, 255, 255, 0.1);
+    transition: color var(--timing-function), background-color var(--timing-function);
 }
 
 .soc-link:hover,
@@ -582,9 +555,7 @@ img {
     /* на білом підсв синім   */
     background-color: var(--acсent-backgroud);
     color: var(--accent-text);
-    transition: var(--timing-function);
 }
-
 
 /* ----------------------------portfolio--------------- */
 .btn-container {
@@ -603,6 +574,8 @@ img {
     background-color: var(--background-color);
     border-radius: 4px;
     border: 1px solid #EEEEEE;
+    transition: color var(--timing-function), background-color var(--timing-function);
+
 }
 
 .btn-item {
@@ -612,8 +585,7 @@ img {
 .button-potfolio:hover,
 .button-potfolio:focus {
     color: var(--accent-text);
-    background: var(--acсent-backgroud);
-    transition: var(--timing-function);
+    background-color: var(--acсent-backgroud);
 }
 
 .products-card {
@@ -624,10 +596,13 @@ img {
     /* flex-basis: calc((100% - 30px) / 3); */
 }
 
+.products-card-item {
+    transition: box-shadow var(--timing-function);
+}
+
 .products-card-item:hover,
 .products-card-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-    transition: var(--timing-function);
 }
 
 .products-text {
@@ -653,7 +628,6 @@ img {
 
 .product-overflow {
     position: relative;
-    left: 0px;
     overflow: hidden;
 }
 
@@ -661,20 +635,65 @@ img {
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
     color: var(--accent-text);
-    padding: 63px 23px;
-    background: rgba(33, 150, 243, 0.9);
-    opacity: 0;
+    padding: 63px 24px 0px 24px;
+   background: rgba(33, 150, 243, 0.9);
     transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--timing-function);
+    /* overflow:auto; */
 }
 
 .products-card-item:hover .products-actions {
-    opacity: 1;
     transform: translateY(0%);
+}
 
+/* ----------------модальне вікно---- */
+
+.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: opacity var(--timing-function), visibility var(--timing-function);
+}
+
+/*  кінцевий стан модалки  */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 528px;
+    min-height: 581px;
+    background: var(--primary-background-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 8px;
+    text-align: right;
+    transform: translate(-50%, -50%) scaleY(1) ;
+    transition: transform 300ms linear; 
+}
+
+/*  початковий стан модалки захований backdrop-ом   */
+.backdrop.is-hidden .modal {
+     transform:translate(-50%, -50%) scaleY(0) rotate(90deg); 
+   
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal-close-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
