@@ -200,7 +200,7 @@ img {
     letter-spacing: 0.02em;
     color: #757575;
     fill: currentColor;
-    transition:color var(--timing-function);
+    transition: color var(--timing-function);
 }
 
 .conect-item {
@@ -256,6 +256,7 @@ img {
     letter-spacing: 0.06em;
     align-items: center;
     padding: 10px 32px;
+    cursor: pointer;
 }
 
 /* -----------------------benefits------------------- */
@@ -642,7 +643,7 @@ img {
     letter-spacing: 0.03em;
     color: var(--accent-text);
     padding: 63px 24px 0px 24px;
-   background: rgba(33, 150, 243, 0.9);
+    background: rgba(33, 150, 243, 0.9);
     transform: translateY(100%);
     transition: transform var(--timing-function);
     /* overflow:auto; */
@@ -675,15 +676,14 @@ img {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     padding: 8px;
-    text-align: right;
-    transform: translate(-50%, -50%) scaleY(1) ;
-    transition: transform 300ms linear; 
+    transform: translate(-50%, -50%) scaleY(1) rotate(0deg);
+    transition: transform 300ms linear;
 }
 
 /*  початковий стан модалки захований backdrop-ом   */
 .backdrop.is-hidden .modal {
-     transform:translate(-50%, -50%) scaleY(0) rotate(90deg); 
-   
+    transform: translate(-50%, -50%) scaleY(0) rotate(90deg);
+
 }
 
 .backdrop.is-hidden {
@@ -693,7 +693,40 @@ img {
 }
 
 .modal-close-btn {
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
     background-color: transparent;
     padding: 0;
+    cursor: pointer;
+
+}
+
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    border: 1px solid #2196F3;
+}
+    
+.icon-close:hover,
+.icon-close:focus{color: #2196F3;
+}
+
+
+
+input {
+    padding: 8px;
+    font-family: inherit;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+
 }
